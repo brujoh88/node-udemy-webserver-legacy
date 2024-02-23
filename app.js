@@ -4,6 +4,19 @@ const port = 8080
 
 app.use( express.static('public'))
 
+
+app.get('/generic', (req, res) => {
+    //res.send('404 | Page not found')
+    res.sendFile(__dirname + '/public/generic.html')
+
+  })
+
+app.get('/elements', (req, res) => {
+    //res.send('404 | Page not found')
+    res.sendFile(__dirname + '/public/elements.html')
+
+  })  
+
 //Ruta que ingresa por estatico y no por esta
 app.get('/ruta', (req, res) => {
     res.send('aca nunca voy a entrar')
