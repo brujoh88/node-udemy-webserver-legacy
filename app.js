@@ -1,6 +1,10 @@
 const express = require('express')
+const hbs = require('hbs')
 const app = express()
 const port = 8080
+
+//Partials
+hbs.registerPartials(__dirname + '/views/partials')
 
 app.set('view engine', 'hbs')
 
@@ -15,14 +19,18 @@ app.get('/', (req, res) => {
   })
 
 app.get('/generic', (req, res) => {
-    //res.send('404 | Page not found')
-    res.sendFile(__dirname + '/public/generic.html')
+    res.render('home',{
+        nombre: 'Gustavo',
+        titulo: "Curso de NodeJS"
+    })
 
   })
 
 app.get('/elements', (req, res) => {
-    //res.send('404 | Page not found')
-    res.sendFile(__dirname + '/public/elements.html')
+    res.render('home',{
+        nombre: 'Gustavo',
+        titulo: "Curso de NodeJS"
+    })
 
   })  
 
